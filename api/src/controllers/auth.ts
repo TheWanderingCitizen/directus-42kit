@@ -45,7 +45,7 @@ for (const authProvider of authProviders) {
 			authRouter = createOpenIDAuthRouter(authProvider.name);
 			break;
 
-		case 'openid-42kit':
+		case 'openid42kit':
 			authRouter = createOpenID42KitAuthRouter(authProvider.name);
 			break;
 
