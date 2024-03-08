@@ -22,7 +22,6 @@ import { getIPFromReq } from '../utils/get-ip-from-req.js';
 import isDirectusJWT from '../utils/is-directus-jwt.js';
 import { verifyAccessJWT } from '../utils/jwt.js';
 import type { AuthenticationMode } from '../types/auth.js';
-import { create } from '@directus/extensions-sdk/cli';
 
 const router = Router();
 const env = useEnv();
