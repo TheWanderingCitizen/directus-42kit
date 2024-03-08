@@ -8,6 +8,7 @@ import {
 	OAuth2AuthDriver,
 	OpenIDAuthDriver,
 	SAMLAuthDriver,
+	OpenID42KitAuthDriver
 } from './auth/drivers/index.js';
 import { DEFAULT_AUTH_PROVIDER } from './constants.js';
 import getDatabase from './database/index.js';
@@ -87,6 +88,9 @@ function getProviderInstance(
 
 		case 'openid':
 			return new OpenIDAuthDriver(options, config);
+			
+		case 'openid42kit':
+			return new OpenID42KitAuthDriver(options, config);
 
 		case 'ldap':
 			return new LDAPAuthDriver(options, config);
