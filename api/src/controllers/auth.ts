@@ -9,6 +9,7 @@ import {
 	createOAuth2AuthRouter,
 	createOpenIDAuthRouter,
 	createSAMLAuthRouter,
+	createOpenID42KitAuthRouter
 } from '../auth/drivers/index.js';
 import { REFRESH_COOKIE_OPTIONS, DEFAULT_AUTH_PROVIDER, SESSION_COOKIE_OPTIONS } from '../constants.js';
 import { useLogger } from '../logger.js';
@@ -21,6 +22,7 @@ import { getIPFromReq } from '../utils/get-ip-from-req.js';
 import isDirectusJWT from '../utils/is-directus-jwt.js';
 import { verifyAccessJWT } from '../utils/jwt.js';
 import type { AuthenticationMode } from '../types/auth.js';
+import { create } from '@directus/extensions-sdk/cli';
 
 const router = Router();
 const env = useEnv();
@@ -42,6 +44,10 @@ for (const authProvider of authProviders) {
 
 		case 'openid':
 			authRouter = createOpenIDAuthRouter(authProvider.name);
+			break;
+
+		case 'openid-42kit':
+			authRouter = createOpenID42KitAuthRouter(authProvider.name);
 			break;
 
 		case 'ldap':
