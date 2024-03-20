@@ -9,6 +9,7 @@ import {
 	createOAuth2AuthRouter,
 	createOpenIDAuthRouter,
 	createSAMLAuthRouter,
+	createOpenID42KitAuthRouter
 } from '../auth/drivers/index.js';
 import { REFRESH_COOKIE_OPTIONS, DEFAULT_AUTH_PROVIDER, SESSION_COOKIE_OPTIONS } from '../constants.js';
 import { useLogger } from '../logger.js';
@@ -42,6 +43,10 @@ for (const authProvider of authProviders) {
 
 		case 'openid':
 			authRouter = createOpenIDAuthRouter(authProvider.name);
+			break;
+
+		case 'openid42kit':
+			authRouter = createOpenID42KitAuthRouter(authProvider.name);
 			break;
 
 		case 'ldap':

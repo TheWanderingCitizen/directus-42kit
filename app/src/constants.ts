@@ -151,4 +151,8 @@ export const FIELD_TYPES_SELECT: Array<{ value: Type; text: string } | { divider
 export const DEFAULT_AUTH_PROVIDER = 'local';
 export const DEFAULT_AUTH_DRIVER = 'default';
 
-export const AUTH_SSO_DRIVERS = ['oauth2', 'openid', 'saml'];
+
+export const AUTH_SSO_DRIVERS = ['oauth2', 'openid', 'saml', 'openid42kit'];
+export const DEFAULT_REPORT_BUG_URL = 'https://github.com/directus/directus/issues/new?template=bug_report.yml';
+export const DEFAULT_REPORT_FEATURE_URL =
+	'https://github.com/directus/directus/discussions/new?category=feature-requests';
